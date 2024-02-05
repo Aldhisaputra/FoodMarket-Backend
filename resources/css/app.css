@@ -1,7 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+/* Hide elements with 'x-cloak' attribute until Alpine.js is ready */
 [x-cloak] {
     display: none;
 }
