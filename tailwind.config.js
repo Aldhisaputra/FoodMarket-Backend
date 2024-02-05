@@ -23,6 +23,18 @@ export default {
                     '800': '#166534',
                     '900': '#14532d',
                 },
+                blue: {
+                    '50': '#e3f8ff',
+                    '100': '#b3ecff',
+                    '200': '#81defd',
+                    '300': '#5ed0fa',
+                    '400': '#40c3f7',
+                    '500': '#2bb0ed',
+                    '600': '#1992d4',
+                    '700': '#127fbf',
+                    '800': '#0b69a3',
+                    '900': '#035388',
+                },
             },
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],

@@ -36,7 +36,7 @@
                                 <td class="border px-6 py-4">{{ $item->roles }}</td>
                                 <td class="border px-6 py- text-center">
                                     {{-- Edit User Button --}}
-                                    <a href="{{ route('users.edit', $item->id) }}" class="inline-block bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 mx-2 rounded">
+                                    <a href="{{ route('users.edit', $item->id) }}" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-2 rounded">
                                         Edit
                                     </a>
                                     
