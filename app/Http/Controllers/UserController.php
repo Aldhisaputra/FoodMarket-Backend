@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -9,6 +10,8 @@ class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function index()
     {
@@ -21,6 +24,8 @@ class UserController extends Controller
 
     /**
      * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function create()
     {
@@ -29,17 +34,21 @@ class UserController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
         $data = $request->all();
 
-        $data['picturePath'] = $request->file('picturePath')->store('assets/user', 'public');
+        $data['profile_photo_path'] = $request->file('profile_photo_path')->store('assets/user', 'public');
 
         User::create($data);
 
         return redirect()->route('users.index');
     }
+
 
     /**
      * Display the specified resource.
