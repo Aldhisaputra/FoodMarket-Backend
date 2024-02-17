@@ -55,15 +55,26 @@ class FoodController extends Controller
      */
     public function edit(Food $food)
     {
-        //
+        return view('food.edit',[
+            'item' => $food
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Food $food)
+    public function update(FoodRequest $request, Food $food)
     {
-        //
+        $data = $request->all();
+
+        if($request->file('picturePath'))
+        {
+            $data['picturePath'] = $request->file('picturePath')->store('asset/food'.'public');
+        }
+
+        $food->update($data);
+
+        return redirect()->route('food.index');
     }
 
     /**
