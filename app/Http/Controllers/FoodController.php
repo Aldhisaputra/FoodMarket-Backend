@@ -80,8 +80,10 @@ class FoodController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Food $food)
     {
-        //
+        $food->delete();
+
+        return redirect()->route('food.index');
     }
 }
