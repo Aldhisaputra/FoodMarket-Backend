@@ -38,9 +38,11 @@ class TransactionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Transaction $transaction)
     {
-        //
+        return view('transactions.detail', [
+            'item' => $transaction
+        ]);
     }
 
     /**
@@ -65,5 +67,15 @@ class TransactionController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function changeStatus(Request $request, $id, $status)
+    {
+        $transaction = Transaction::findOrFail($id);
+
+        $transaction->status = $status;
+        $transaction->save();
+
+        return redirect()->route('transactions.show', $id);
     }
 }
