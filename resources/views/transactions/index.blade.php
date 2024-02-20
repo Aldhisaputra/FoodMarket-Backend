@@ -24,8 +24,8 @@
                         @forelse($transactions as $item)
                             <tr>
                                 <td class="border px-6 py-4">{{ $item->id }}</td>
-                                <td class="border px-6 py-4 ">{{ $item->food->name }}</td>
-                                <td class="border px-6 py-4 ">{{ $item->user->name }}</td>
+                                <td class="border px-6 py-4 ">{{ optional($item->food)->name }}</td>
+                                <td class="border px-6 py-4 ">{{ optional($item->user)->name }}</td>
                                 <td class="border px-6 py-4">{{ $item->quantity }}</td>
                                 <td class="border px-6 py-4">{{ number_format($item->total) }}</td>
                                 <td class="border px-6 py-4">{{ $item->status }}</td>
